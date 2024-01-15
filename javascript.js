@@ -7,6 +7,10 @@ btn.addEventListener('click', () => {
 
     responseNumber = parseInt(response);
 
+    if (responseNumber > 100) {
+        responseNumber = 100;
+    };
+
     const square = document.querySelectorAll('.square');
 
     square.forEach(square => {
