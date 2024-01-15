@@ -1,9 +1,41 @@
 const container = document.querySelector('.container');
 
-for (let index = 0; index < 256; index++) {
-    let square = document.createElement('div');
+const btn = document.querySelector('.btn');
 
-    square.className = 'square';
-    container.appendChild(square);
- 
-}
+btn.addEventListener('click', () => {
+    let response = prompt('How much squares per side (max 100)?');
+
+    responseNumber = parseInt(response);
+
+    const square = document.querySelectorAll('.square');
+
+    square.forEach(square => {
+        square.remove();
+    });
+
+    createGrid(responseNumber*responseNumber);
+
+    newSquareWidth = 960/responseNumber;
+
+    const newSquare = document.querySelectorAll('.square');
+
+    newSquare.forEach(newSquare => {
+        newSquare.style.width = newSquareWidth+'px';
+        newSquare.style.height = newSquareWidth+'px';
+    });
+
+});
+
+
+function createGrid(numberOfSquares) {
+    for (let index = 0; index < numberOfSquares; index++) {
+        let square = document.createElement('div');
+    
+        square.className = 'square';
+        container.appendChild(square);
+     
+    }
+};
+
+createGrid(256);
+
